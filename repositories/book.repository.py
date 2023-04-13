@@ -1,5 +1,5 @@
 from db.run_sql import run_sql
-from models.author import Author
+from repositories import author_repository
 from models.book import Book
 
 def save(book):
