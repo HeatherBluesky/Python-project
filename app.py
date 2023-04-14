@@ -1,6 +1,6 @@
 from flask import Flask, render_template
-from models.book import Book
-from models.author import Author
+
+
 
 
 app = Flask(__name__)

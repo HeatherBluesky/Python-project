@@ -28,3 +28,5 @@ book_3 = Book("Horse Handling for Dummiess", author_3, "Education", 3, 3.49, 8.9
 book_repository.save(book_3)
 
 book_4 = Book("I am Burdened with Glorious Purpose", author_4, "Autobiography", 6, 4.99, 14.99, "Asguardian")
+
+pdb.set_trace()
