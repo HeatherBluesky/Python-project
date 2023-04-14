@@ -1,7 +1,7 @@
 from db.run_sql import run_sql
 
-from repositories import book_repository
 from models.author import Author
+from models.book import Book
 
 def save(author):
     sql = "INSERT INTO author (first_name, last_name) VALUES ( %s, %s) RETURING id"
@@ -9,3 +9,16 @@ def save(author):
     results = run_sql(sql, values)
     author.id = results[0]['id']
     return author
+
+
+def select(id):
+    author = None
+    sql = "SELECT * from authors WHERE id = %s"
+    values = [id]
+    results= run_sql (sql, values)
+    if results:
+        result = results[0]
+        author = Author(result['first_name', 'last_name'])
+    return author
+                        
+
