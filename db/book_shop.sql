@@ -11,10 +11,11 @@ CREATE TABLE authors(
 CREATE TABLE books(
     id SERIAL PRIMARY KEY, 
     title VARCHAR(255),
+    author_id INT NOT NULL REFERENCES authors(id),
     genre VARCHAR(255),
     quantiny INT,
     buying_price FLOAT,
     selling_price FLOAT,
-    author_id INT NOT NULL REFERENCES authors(id)
+    language VARCHAR(255)
 );
 
