@@ -9,3 +9,12 @@ def save(book):
     book.id = results[0]['id']
     return book
 
+def select_all():
+    books = []
+    sql = " SELECT * FROM books"
+    results = run_sql(sql)
+    for row in results:
+        author = author_repository.select(row['author_id'])
+        book = Book (row['title'], author, row['genre'], row['quantity'], row ['buying_price'], row['selling_price'], row['language'])
+        books.append(book)
+    return books
