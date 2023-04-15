@@ -3,7 +3,7 @@ from repositories import author_repository
 from models.book import Book
 
 def save(book):
-    sql = "INSERT INTO books (title, author, genre, quanity, buying_price, selling_price, language) VALUES ( %s, %s, %s, %s, %s, %s, %s) RETURING id"
+    sql = "INSERT INTO books (title, author_id, genre, quantity, buying_price, selling_price, language) VALUES ( %s, %s, %s, %s, %s, %s, %s) RETURNING id"
     values = [book.title, book.author.id, book.genre, book.quantity, book.buying_price, book.selling_price, book.language]
     results = run_sql(sql, values)
     book.id = results[0]['id']
@@ -20,8 +20,8 @@ def select_all():
     return books
 
 def update(book):
-    sql = "UPDATE books SET ( title, author_id, genre, quanity, buying_price, selling_price, language) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [ book.title, book.author,id, book.genre, book.quanity, book.buying_price, book.selling_price, book.language, book.id]
+    sql = "UPDATE books SET ( title, author_id, genre, quantity, buying_price, selling_price, language) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [ book.title, book.author_id, book.genre, book.quantity, book.buying_price, book.selling_price, book.language, book.id]
     run_sql(sql, values)
 
 def get_langauges(books):
@@ -31,7 +31,7 @@ def get_langauges(books):
     values = [book_language]
     results = run_sql(sql, values)
     for row in results:
-        book = Book(row['title'], row['author'], row['genre'], row['quanity'], row['buying_price'], row['selling_price'], row['language'], row['id'])
+        book = Book(row['title'], row['author'], row['genre'], row['quantity'], row['buying_price'], row['selling_price'], row['language'], row['id'])
         books.append(book)
     return books
 

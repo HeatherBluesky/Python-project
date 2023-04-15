@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS books;
-DROP TABLE IF EXISTS authors;
+DROP TABLE books;
+DROP TABLE authors;
 
 CREATE TABLE authors(
     id SERIAL Primary Key, 
@@ -13,7 +13,7 @@ CREATE TABLE books(
     title VARCHAR(255),
     author_id INT NOT NULL REFERENCES authors(id) ON DELETE CASCADE,
     genre VARCHAR(255),
-    quantiny INT,
+    quantity INT,
     buying_price FLOAT,
     selling_price FLOAT,
     language VARCHAR(255)
