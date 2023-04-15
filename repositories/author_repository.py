@@ -36,3 +36,15 @@ def delete(id):
 def delete_all():
     sql = "DELETE * FROM authors"
     run_sql(sql)
+
+def get_books(author):
+    books = []
+    author_id = author.id
+    sql = "SELECT * FROM books WHERE author_id = %s"
+    values = [author_id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        book = Book(row['title'], row['author'], row['genre'], row['quanity'], row['buying_price'], row['selling_price'], row['language'], row['id'])
+        books.append(book)
+    return books
