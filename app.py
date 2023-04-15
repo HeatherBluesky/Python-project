@@ -1,11 +1,11 @@
 from flask import Flask, render_template
 
-from controllers.book_shop_controller import book_Shop_blueprint
+from controllers.book_shop_controller import book_blueprint
 
 
 app = Flask(__name__)
 
-app.register_blueprint(book_Shop_blueprint)
+app.register_blueprint(book_blueprint)
 
 @app.route("/")
 def index():
