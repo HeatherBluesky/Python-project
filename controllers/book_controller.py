@@ -18,7 +18,13 @@ def all_books():
 @book_shop_blueprint.route("/books/<id>")
 def show(id):
     book = book_repository.select(id)
-    return render_template("books/show.html", book=book)
+    return render_template("books/show.html", book =book)
+
+@book_shop_blueprint.route("/books/new", methods=['GET'])
+def new_book():
+    books = book_repository.select_all()
+    authors = author_repositorty.select_all()
+    return render_template("books/new.html", books = books, authors = authors)
 
 @book_shop_blueprint.route("/books/new",  methods=['POST'])
 def create_book():
@@ -26,13 +32,13 @@ def create_book():
     author  = author_repositorty.select(request.form['author_id'])
     genre = request.form['genre']
     quantity = request.form['quantity']
-    buying_price = request.form ['buying_price']
+    buying_price = request.form['buying_price']
     selling_price = request.form['selling_price']
     language = request.form['selling_price']
     book = Book(title, author, genre, quantity, buying_price, selling_price, language)
     book_repository.save(book)
-    return render_template("books/new.html", books= book)
-    
+    # return render_template("books/new.html")   
+    return redirect('/books') 
 
 @book_shop_blueprint.route("/books/<id>", methods=['GET'])
 def show_book(id):

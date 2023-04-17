@@ -33,7 +33,7 @@ def select_all():
 
 
 def update(author):
-    sql = "UPDATE author SET ( first_name, last_name) = (%s, %s) WHERE id = %s"
+    sql = "UPDATE authors SET ( first_name, last_name) = (%s, %s) WHERE id = %s"
     values = [ author.first_name, author.last_name ,author.id]
     run_sql(sql, values)
 
