@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">   
     <title>Book Shop</title>
-    <link rel="stylesheet" href="{{ url_for('static', filername='style.css') }}">   
 </head>
+
 <body>
-<main>
-    <nav>
-        <ul>
-            <li>
-                <a href="/languages"> Languges</a>
-            </li>
-            <li>
-                <a hfer="/authors"> Authors</a>
-            </li>
-        </ul>
-    </nav>
-    <section id="content">
+
+<body>
+    <div>
         {% block content %}
 
         {% endblock %}
-    </section>
-</main>
+    </div>
+
+    <div>
+        {% block contents%}
+
+        {% endblock %}
+
 </body>
 </html>
+

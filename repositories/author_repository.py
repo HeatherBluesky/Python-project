@@ -19,7 +19,7 @@ def select(id):
     results= run_sql (sql, values)
     if results:
         result = results[0]
-        author = Author(result['first_name', 'last_name'])
+        author = Author(result['first_name'], result['last_name'], result['id'])
     return author
                         
 def select_all():
@@ -27,7 +27,7 @@ def select_all():
     sql = " SELECT * FROM authors"
     results = run_sql(sql)
     for row in results:
-        author = Author(row['first_name'], row['last_name'])
+        author = Author(row['first_name'], row['last_name'], row['id'])
         authors.append(author)
     return authors
 

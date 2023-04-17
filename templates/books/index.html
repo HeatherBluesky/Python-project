@@ -1,0 +1,25 @@
+
+{% block content %}
+
+
+{% for book in books %}
+  <div class="book">
+    <div class="content">
+      <a href="/books/{{book.id}}">{{book.title}}</a>
+      <div class="title">
+        {{book.genre}}
+        <p><i>{{book.author.first_name}}{{book.author.last_name}}</i></p>
+      </div>
+      
+
+    <p><a href="/books/{{book.id}}/edit">Edit</a></p>
+    
+    <p><a href="/books/{{book.id}}/delete">DELETE</a></p>
+      <div class="buttons">
+
+
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

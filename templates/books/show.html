@@ -1,13 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> {{user.name}} </h1>
 
-<h3>Languages:</h3>
+<nav>
+  <ul class="nav bar">
+      <li>
+          <a href="/books">Books</a>
+      </li>
+      <li>
+          <a href="/books/new">Add Book</a>
+      </li>
+  </ul>
+  </nav>
+
+
+<h3> BOOK</h3>
 <ul>
-    {% for Language in languages %}
-        <li>{{ book.language }}</li>
-    {% endfor %}
-</ul>
+    <p>{{book.title}}</p>
+    <hr>
+    <p>Genre: {{book.genre}}</p>
+    <hr>
+    <p>Language: {{book.language}}</p>
+    <hr>
+    <p>Quantity: {{book.quantity}}</p>
+    <hr>
+    <p>Buying Price: {{book.buying_price}}</p>
+    <hr>
+    <p> Selling Price: {{book.selling_price}}</p>
+    <hr>
 
+  </div>
+</ul>
 {% endblock %}
