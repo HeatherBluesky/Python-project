@@ -1,48 +1,36 @@
 {% extends "base.html" %}
-{% block content %}
+{% block contentsnew %}
 
 
 
-<form action="/books/new" method="post">
-
-    <div>
-        <label for="title">Title:</label>
+<form class="form" action="/books/new" method="POST">
+    <label for="title">Title:</label>
         <input type="text" id="title" name="title" placeholder="Title" required autofocus>
-    </div>
-
-    <div>
-        <label for="author">Author:</label>
+    
+    <label for="author">Author:</label>
         <select id="author" name="author_id">
         {% for author in all_authors %}
             <option value="{{ author.id }}"> {{ first_name() }}{{ last_name() }}</option>
         {% endfor %}
         </select>
-    </div>
+    
 
-    <div>
         <label for="genre">Genre:</label>
         <input type="text" id="genre" name="genre" placeholder="Genre" required autofocus>
-    </div>
-
-    <div>
+    
         <label for="Quantity">Quantity:</label>
         <input type="text" id="quantity" name="quantity" placeholder="quantity" required>
-    </div>
-
-    <div>
+    
         <label for="buying_price">buying_price:</label>
         <input type="text" id="buying_price" name="buying_price" placeholder="buying_price" required>
-    </div>
-
-    <div>
+    
         <label for="selling_price">selling_price:</label>
         <input type="text" id="selling_price" name="selling_price" placeholder="selling_price" required>
-    </div>
-
-
-
-
-  <button type="submit">Add Book</button>
+ 
+        <label for="language"> language:</label>
+        <input type="text" id="language" name="language" placeholder="language">
+        
+    <button type="submit">Add Book</button>
 
 </form>
 

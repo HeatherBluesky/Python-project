@@ -22,14 +22,13 @@ def show(id):
 
 @book_shop_blueprint.route("/books/new",  methods=['POST'])
 def create_book():
-    title    = request.form['title']
+    title = request.form['title']
     author  = author_repositorty.select(request.form['author_id'])
     genre = request.form['genre']
     quantity = request.form['quantity']
     buying_price = request.form ['buying_price']
     selling_price = request.form['selling_price']
     language = request.form['selling_price']
-    author = author_repositorty.select(request.form ['author_id'])
     book = Book(title, author, genre, quantity, buying_price, selling_price, language)
     book_repository.save(book)
     return render_template("books/new.html", books= book)

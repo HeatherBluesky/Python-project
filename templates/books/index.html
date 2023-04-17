@@ -1,6 +1,15 @@
 
-{% block content %}
+{% block content%}
 
+<ul class="nav bar">
+    <li>
+        <a href="/books">Books</a>
+    </li>
+    <li>
+        <a href="/books/new">Add Book</a>
+    </li>
+</ul>
+</nav>
 
 {% for book in books %}
   <div class="book">
@@ -8,7 +17,7 @@
       <a href="/books/{{book.id}}">{{book.title}}</a>
       <div class="title">
         {{book.genre}}
-        <p><i>{{book.author.first_name}}{{book.author.last_name}}</i></p>
+        <p><i>{{book.author.first_name}} {{book.author.last_name}}</i></p>
       </div>
       
 

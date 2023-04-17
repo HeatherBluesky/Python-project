@@ -2,33 +2,38 @@
 
 {% block content %}
 
-<nav>
-  <ul class="nav bar">
-      <li>
-          <a href="/books">Books</a>
-      </li>
-      <li>
-          <a href="/books/new">Add Book</a>
-      </li>
-  </ul>
-  </nav>
+
 
 
 <h3> BOOK</h3>
-<ul>
-    <p>{{book.title}}</p>
-    <hr>
-    <p>Genre: {{book.genre}}</p>
-    <hr>
-    <p>Language: {{book.language}}</p>
-    <hr>
-    <p>Quantity: {{book.quantity}}</p>
-    <hr>
-    <p>Buying Price: {{book.buying_price}}</p>
-    <hr>
-    <p> Selling Price: {{book.selling_price}}</p>
-    <hr>
+<form class="form" action="/books/new" method="POST">
+  <label for="title">Title:</label>
+      <input type="text" id="title" name="title" placeholder="Title" required autofocus>
+  
+  <label for="author">Author:</label>
+      <select id="author" name="author_id">
+      {% for author in all_authors %}
+          <option value="{{ author.id }}"> {{ author.first_name }}{{ author.last_name }}</option>
+      {% endfor %}
+      </select>
+  
 
-  </div>
-</ul>
+      <label for="genre">Genre:</label>
+      <input type="text" id="genre" name="genre" placeholder="Genre" required autofocus>
+  
+      <label for="Quantity">Quantity:</label>
+      <input type="text" id="quantity" name="quantity" placeholder="quantity" required>
+  
+      <label for="buying_price">buying_price:</label>
+      <input type="text" id="buying_price" name="buying_price" placeholder="buying_price" required>
+  
+      <label for="selling_price">selling_price:</label>
+      <input type="text" id="selling_price" name="selling_price" placeholder="selling_price" required>
+
+      <label for="language"> language:</label>
+      <input type="text" id="language" name="language" placeholder="language">
+      
+  <button type="submit">Add Book</button>
+
+</form>
 {% endblock %}
