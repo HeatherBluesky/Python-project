@@ -22,6 +22,15 @@ def select(id):
         author = Author(result['first_name', 'last_name'])
     return author
                         
+def select_all():
+    authors = []
+    sql = " SELECT * FROM authors"
+    results = run_sql(sql)
+    for row in results:
+        author = Author(row['first_name'], row['last_name'])
+        authors.append(author)
+    return authors
+
 
 def update(author):
     sql = "UPDATE author SET ( first_name, last_name) = (%s, %s) WHERE id = %s"
