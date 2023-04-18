@@ -1,7 +1,5 @@
-
-{% block content%}
-
-
+{% extends 'base.html'%}
+ {% block content%}
 
 {% for book in books %}
   <div class="book">
@@ -11,16 +9,16 @@
         {{book.genre}}
         <p><i>{{book.author.first_name}} {{book.author.last_name}}</i></p>
       </div>
-      
-
-    <p><a href="/books/{{book.id}}/edit">Edit</a></p>
+    <p><a href="/books/{{book.id}}/edit">Edit</a>
     
     <p><a href="/books/{{book.id}}/delete">DELETE</a></p>
       <div class="buttons">
+        <hr>
 
 
     </div>
   </div>
 {% endfor %}
+
 
 {% endblock %}

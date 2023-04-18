@@ -8,6 +8,12 @@ import pdb
 
 book_shop_blueprint = Blueprint("books", __name__)
 
+@book_shop_blueprint.route("/")
+def books():
+    books = book_repository.select_all()
+    return render_template("/index.html", books = books)
+
+
 @book_shop_blueprint.route("/books")
 def all_books():
     print("method hit")
@@ -34,7 +40,7 @@ def create_book():
     quantity = request.form['quantity']
     buying_price = request.form['buying_price']
     selling_price = request.form['selling_price']
-    language = request.form['selling_price']
+    language = request.form['language']
     book = Book(title, author, genre, quantity, buying_price, selling_price, language)
     book_repository.save(book)
     # return render_template("books/new.html")   
