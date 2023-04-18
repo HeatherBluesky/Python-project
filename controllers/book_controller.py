@@ -65,9 +65,10 @@ def update_book(id):
     quantity = request.form['quantity']
     buying_price = request.form ['buying_price']
     selling_price = request.form['selling_price']
-    language = request.form['selling_price']
+    language = request.form['language']
     book = Book(title, author, genre, quantity, buying_price, selling_price, language, id)
     book_repository.update(book)
+    author_repositorty.update(author)
     return redirect('/books')
 
 

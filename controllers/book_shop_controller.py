@@ -45,6 +45,11 @@ def create_author():
     author_repository.save(author)
     return redirect('/authors') 
 
+@author_blueprint.route("/authors/<int:id>", methods=['GET'])
+def show_author(id):
+    author = author_repository.select(id)
+    return render_template('/authors/show.html', author = author)
+
 
 @author_blueprint.route("/authors/<int:id>/delete")
 def delete_author(id):

@@ -10,6 +10,12 @@ h1 {
     justify-content: center;
     font-family: fantasy;
 }
+
+h2 {
+    display: flex;
+    justify-content: center;
+    font-family: fantasy;
+}
 nav > ul {
     color: pink;
     display: flex;
