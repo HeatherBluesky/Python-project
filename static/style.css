@@ -16,6 +16,8 @@ h2 {
     justify-content: center;
     font-family: fantasy;
 }
+
+
 nav > ul {
     color: pink;
     display: flex;
@@ -38,4 +40,5 @@ p {
     font-size: large;
    
 }
+
 
