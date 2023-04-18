@@ -16,9 +16,10 @@
        
        
     </div>
-      {% if book.quantity == 2 %}
-      {% print("LOW STOCK ORDER NOW")%}
-
+      {% if book.quantity == 0 %}
+        {% print("OUT OF STOCK")%}
+      {% elif book.quantity == 2%}
+        {% print("LOW STOCK")%}
       {% endif%}
       <hr>
   </div>
