@@ -12,7 +12,8 @@
    
         <p><i>{{book.author.first_name}} {{book.author.last_name}}</i></p>
       </div>
-    <p><b>Title:<b/> {{  book.title  }} Genre: {{  book.genre  }},  Language: {{  book.language}}, Quantity:{{book.quantity}}, Buying Price: {{book.buying_price}}, Selling Price: {{book.selling_price}}</b></p>
+    <p>Title:<b>{{  book.title  }}</b> Genre: <b>{{  book.genre  }}</b>,  Language: <b>{{  book.language}}</b></p>
+    <p>Quantity:<b>{{book.quantity}}</b>, Buying Price: <b>{{book.buying_price}}</b>, Selling Price: <b>{{book.selling_price}}</b>, Markup Value: <b>{{book.selling_price - book.buying_price}}<b></p>
     <hr>
     {% endfor %}
 </body>
