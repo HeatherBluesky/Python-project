@@ -3,20 +3,18 @@
 {% block content %}
 <h1>Authors</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
+
+{% for author in authors %}
+<div class="author">
+  <div class="content">
+    <a href="/authors/{{ author.id }}"> <b>{{author.first_name}} {{author.last_name}}</b> </a></td>
   
-  </tr>
-  {% for author in authors %}
-  <tr>
-    <td><a href="/authors/{{ author.id }}"> {{author.first_name}} {{author.last_name}} </a></td>
     <p><a href="/authors/{{author.id}}/edit">Edit</a></p>
     
-  <p><a href="/authors/{{author.id}}/delete">DELETE</a></p>
+  <p><a href="/authors/{{author.id}}/delete">Delete</a></p>
     <div class="buttons">
-  </tr>
+  <hr>
 
   {% endfor %}
-</table>
+
 {% endblock %}

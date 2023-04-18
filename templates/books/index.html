@@ -13,12 +13,18 @@
     
     <p><a href="/books/{{book.id}}/delete">DELETE</a></p>
       <div class="buttons">
-        <hr>
-
-
+       
+       
     </div>
+      {% if book.quantity == 2 %}
+      {% print("LOW STOCK ORDER NOW")%}
+
+      {% endif%}
+      <hr>
   </div>
 {% endfor %}
+
+
 
 
 {% endblock %}
