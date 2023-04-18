@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h3>BOOK INVENTORY</h3>
+{% for book in books %}
+{% if filter.lower() in book.author.first_name.lower() or filter.lower() in book.author.last_name.lower()%}
+  <div class="book">
+    <div class="content">
+   
+        <p><i>{{book.author.first_name}} {{book.author.last_name}}</i></p>
+      </div>
+    <p>Title:<b>{{  book.title  }}</b> Genre: <b>{{  book.genre  }}</b>,  Language: <b>{{  book.language}}</b></p>
+    <p>Quantity:<b>{{book.quantity}}</b>, Buying Price: <b>{{book.buying_price}}</b>, Selling Price: <b>{{book.selling_price}}</b>, Markup Value: <b>{{book.selling_price - book.buying_price}}<b></p>
+    <hr>
+    {% endif%}
+    {% endfor %}
+</body>
+
+
+<h2> Your Stock List</h2>
+{% endblock %}

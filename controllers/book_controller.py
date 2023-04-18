@@ -13,12 +13,17 @@ def books():
     books = book_repository.select_all()
     return render_template("/index.html", books = books)
 
+@book_shop_blueprint.route("/filter", methods=['POST'])
+def filter():
+    books = book_repository.select_all()
+    authors = author_repositorty.select_all()
+    filter = request.form['search-form']
+    return render_template("/filtered_index.html", books = books, authors = authors, filter = filter)
 
 @book_shop_blueprint.route("/books")
 def all_books():
     print("method hit")
     books = book_repository.select_all()
-
     return render_template("books/index.html", books = books)
 
 @book_shop_blueprint.route("/books/<id>")
