@@ -11,7 +11,7 @@
     <label for="author">Author:</label>
     <select id="author" name="author_id">
       {% for author in all_authors %}
-        <option value={{ book.author.id}}>
+        <option value={{ author.id}}>
           {{ author.first_name }} {{ author.last_name}}
         </option>
       {% endfor %}
