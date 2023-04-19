@@ -17,6 +17,11 @@ h2 {
     font-family: fantasy;
 }
 
+h3{
+    display: flex;
+    justify-content: center;
+    font-family: fantasy;
+}
 
 nav > ul {
     color: pink;
@@ -39,6 +44,12 @@ p {
     font-family: fantasy;
     font-size: large;
    
+}
+
+
+nav > form {
+    padding: 1px
+
 }
 
 
