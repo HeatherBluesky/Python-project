@@ -20,7 +20,6 @@ def show(id):
 @author_blueprint.route("/authors/<id>/edit", methods=['GET'])
 def edit_author(id):
     author = author_repository.select(id)
-    # books = book_repository.select_all()
     return render_template('authors/edit.html', author = author)
 
 @author_blueprint.route("/authors/<int:id>", methods=['POST'])

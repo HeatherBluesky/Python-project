@@ -24,7 +24,7 @@ book_repository.save(book_1)
 book_2 = Book("Middle Earth, A Travel Guide", author_2, "Travel", 7, 3.50, 9.99, "Hobbitish")
 book_repository.save(book_2)
 
-book_3 = Book("Horse Handling for Dummiess", author_3, "Education", 3, 3.49, 8.99, "Dothraki")
+book_3 = Book("Horse Handling for Dummies", author_3, "Education", 3, 3.49, 8.99, "Dothraki")
 book_repository.save(book_3)
 
 book_4 = Book("I am Burdened with Glorious Purpose", author_4, "Autobiography", 6, 4.99, 14.99, "Asguardian")
