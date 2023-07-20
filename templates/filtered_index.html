@@ -6,7 +6,7 @@
 {% for book in books %}
 {% if filter.lower() in book.author.first_name.lower() or filter.lower() in book.author.last_name.lower()%}
   <div class="book">
-    <div class="content">
+    <div class="bookItem">
    
         <p><i>{{book.author.first_name}} {{book.author.last_name}}</i></p>
       </div>

@@ -4,8 +4,8 @@ from models.book import Book
 import pdb
 
 def save(book):
-    sql = "INSERT INTO books (title, author_id, genre, quantity, buying_price, selling_price, language) VALUES ( %s, %s, %s, %s, %s, %s, %s) RETURNING id"
-    values = [book.title, book.author.id, book.genre, book.quantity, book.buying_price, book.selling_price, book.language]
+    sql = "INSERT INTO books (title, author_id, genre, quantity, buying_price, selling_price, language, description) VALUES ( %s, %s, %s, %s, %s, %s, %s, %s ) RETURNING id"
+    values = [book.title, book.author.id, book.genre, book.quantity, book.buying_price, book.selling_price, book.language, book.description]
     results = run_sql(sql, values)
     book.id = results[0]['id']
     return book
@@ -16,7 +16,7 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         author = author_repository.select(row['author_id'])
-        book = Book (row['title'], author, row['genre'], row['quantity'], row ['buying_price'], row['selling_price'], row['language'], row['id'])
+        book = Book (row['title'], author, row['genre'], row['quantity'], row ['buying_price'], row['selling_price'], row['language'], row['description'],row['id'])
         books.append(book)
     return books
 
@@ -28,12 +28,12 @@ def select(id):
     if results:
         result = results[0]
         author = author_repository.select(result['author_id'])
-        book = Book(result['title'], author, result['genre'], result['quantity'], result['buying_price'], result['selling_price'], result['language'], result['id'])
+        book = Book(result['title'], author, result['genre'], result['quantity'], result['buying_price'], result['selling_price'], result['language'], result['description'],result['id'])
     return book
 
 def update(book):
-    sql = "UPDATE books SET ( title, author_id, genre, quantity, buying_price, selling_price, language) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [ book.title, book.author.id, book.genre, book.quantity, book.buying_price, book.selling_price, book.language, book.id]
+    sql = "UPDATE books SET ( title, author_id, genre, quantity, buying_price, selling_price, language) = (%s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [ book.title, book.author.id, book.genre, book.quantity, book.buying_price, book.selling_price, book.language, book.description, book.id]
     run_sql(sql, values)
 
 def get_langauges(books):
@@ -43,7 +43,7 @@ def get_langauges(books):
     values = [book_language]
     results = run_sql(sql, values)
     for row in results:
-        book = Book(row['title'], row['author'], row['genre'], row['quantity'], row['buying_price'], row['selling_price'], row['language'], row['id'])
+        book = Book(row['title'], row['author'], row['genre'], row['quantity'], row['buying_price'], row['selling_price'], row['language'], row['description'], row['id'])
         books.append(book)
     return books
 
