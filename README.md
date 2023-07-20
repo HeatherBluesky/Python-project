@@ -9,7 +9,7 @@ This applicatication uses python, flask , html and postgres.
 <h2>To run:</h2>
 
 
-  <p>.pen Terminal </p>
+  <p>.Open Terminal </p>
   <p>.createdb book_shop </p>
   <p>.psql -d book_shop -f db/book_shop.sql </p>
   <p>.python3 console.py </p>
