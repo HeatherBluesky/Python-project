@@ -13,6 +13,6 @@ This applicatication uses python, flask , html and postgres.
   <p>.createdb book_shop </p>
   <p>.psql -d book_shop -f db/book_shop.sql </p>
   <p>.python3 console.py </p>
-  <p>.pyhton3 -m flask run </P
+  <p>.python3 -m flask run </P
 
 
